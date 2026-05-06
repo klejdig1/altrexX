@@ -277,7 +277,7 @@ function renderProductPage() {
     totalBids.textContent = String(bidsCount);
     renderBidHistory(bidHistory, history.slice(0, 8));
     liveActivity.textContent = `Live: ${randomName} placed ${formatPrice(currentPrice)}.`;
-  }, 5000);
+  }, 8000);
 }
 
 const page = document.body.dataset.page;
