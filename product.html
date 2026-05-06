@@ -19,12 +19,20 @@
         <p id="auction-status" class="status-badge">Live Auction</p>
         <p id="product-description"></p>
         <p class="price-row">Starting Bid: <strong id="starting-price">$0</strong></p>
-        <p class="price-row">Highest Bid: <strong id="product-price">$0</strong></p>
-        <p class="timer-row">Time left: <span id="countdown">00:00</span></p>
-        <button id="bid-btn" class="bid-btn">Place Bid (+$10)</button>
+        <section class="bid-hero">
+          <p class="bid-hero-label">Highest Bid</p>
+          <p id="product-price" class="bid-hero-value">$0</p>
+        </section>
+        <section class="timer-hero">
+          <p class="timer-hero-label">Auction ends in</p>
+          <p id="countdown" class="timer-hero-value">00:00</p>
+        </section>
+        <button id="bid-btn-main" class="bid-btn">Place Bid (+$10)</button>
         <p class="meta-row">Active Bidders: <strong id="active-bidders">0</strong></p>
+        <p class="meta-row">Users watching now: <strong id="watching-users">0</strong></p>
         <p class="meta-row">Total Bids: <strong id="total-bids">0</strong></p>
         <p id="auction-message" class="auction-message"></p>
+        <div id="live-activity" class="live-activity"></div>
         <div class="history-panel">
           <h3>Bid History</h3>
           <ul id="bid-history" class="history-list"></ul>
@@ -32,6 +40,13 @@
       </div>
     </section>
   </main>
+
+  <div class="sticky-bid-bar">
+    <div class="sticky-bid-content">
+      <p class="sticky-bid-title">Highest Bid: <strong id="sticky-price">$0</strong></p>
+      <button id="bid-btn-sticky" class="bid-btn">Place Bid (+$10)</button>
+    </div>
+  </div>
 
   <script src="app.js"></script>
 </body>

@@ -179,12 +179,16 @@ function renderProductPage() {
   const startingPrice = document.getElementById("starting-price");
   const price = document.getElementById("product-price");
   const timer = document.getElementById("countdown");
-  const bidButton = document.getElementById("bid-btn");
+  const bidButtonMain = document.getElementById("bid-btn-main");
+  const bidButtonSticky = document.getElementById("bid-btn-sticky");
   const activeBidders = document.getElementById("active-bidders");
+  const watchingUsers = document.getElementById("watching-users");
   const totalBids = document.getElementById("total-bids");
   const statusBadge = document.getElementById("auction-status");
   const auctionMessage = document.getElementById("auction-message");
   const bidHistory = document.getElementById("bid-history");
+  const stickyPrice = document.getElementById("sticky-price");
+  const liveActivity = document.getElementById("live-activity");
   if (
     !title ||
     !image ||
@@ -192,51 +196,83 @@ function renderProductPage() {
     !startingPrice ||
     !price ||
     !timer ||
-    !bidButton ||
+    !bidButtonMain ||
+    !bidButtonSticky ||
     !activeBidders ||
+    !watchingUsers ||
     !totalBids ||
     !statusBadge ||
     !auctionMessage ||
-    !bidHistory
+    !bidHistory ||
+    !stickyPrice ||
+    !liveActivity
   ) {
     return;
   }
+  const bidButtons = [bidButtonMain, bidButtonSticky];
 
   let currentPrice = product.currentBid;
   let isAuctionEnded = false;
   let bidsCount = product.bidsCount;
+  let watchersCount = Math.max(product.activeBidders + 2, 3);
   const history = [...product.bidHistory];
+  const liveNames = ["Alba K.", "Luan H.", "Mira T.", "Rion A.", "Dua N."];
 
   title.textContent = product.name;
   image.src = product.image;
   description.textContent = product.description;
   startingPrice.textContent = formatPrice(product.currentBid);
   price.textContent = formatPrice(currentPrice);
+  stickyPrice.textContent = formatPrice(currentPrice);
   activeBidders.textContent = String(product.activeBidders);
+  watchingUsers.textContent = String(watchersCount);
   totalBids.textContent = String(bidsCount);
   auctionMessage.textContent = "Auction is live. Place your bid now.";
+  liveActivity.textContent = "Live: New watchers are joining this auction.";
   renderBidHistory(bidHistory, history);
   startFakeTimer(
     timer,
-    bidButton,
+    bidButtonMain,
     statusBadge,
     () => {
       isAuctionEnded = true;
       auctionMessage.textContent = "Auction is closed. No further bids are accepted.";
+      liveActivity.textContent = "Live: Auction ended.";
+      bidButtonSticky.disabled = true;
+      bidButtonSticky.textContent = "Auction Ended";
     },
     AUCTION_DURATION_SECONDS
   );
 
-  bidButton.addEventListener("click", () => {
-    if (isAuctionEnded || bidButton.disabled) return;
+  function placeBid() {
+    if (isAuctionEnded || bidButtonMain.disabled || bidButtonSticky.disabled) return;
     currentPrice += BID_INCREMENT;
     bidsCount += 1;
     history.unshift({ bidder: "You", amount: currentPrice });
     price.textContent = formatPrice(currentPrice);
+    stickyPrice.textContent = formatPrice(currentPrice);
     totalBids.textContent = String(bidsCount);
     auctionMessage.textContent = `New highest bid: ${formatPrice(currentPrice)}.`;
+    liveActivity.textContent = `Live: You placed a bid at ${formatPrice(currentPrice)}.`;
     renderBidHistory(bidHistory, history.slice(0, 8));
+  }
+
+  bidButtons.forEach((button) => {
+    button.addEventListener("click", placeBid);
   });
+
+  setInterval(() => {
+    if (isAuctionEnded) return;
+    const watcherShift = Math.random() > 0.5 ? 1 : -1;
+    watchersCount = Math.max(2, watchersCount + watcherShift);
+    watchingUsers.textContent = String(watchersCount);
+
+    if (Math.random() > 0.55) {
+      const randomName = liveNames[Math.floor(Math.random() * liveNames.length)];
+      const ghostBid = currentPrice + BID_INCREMENT;
+      liveActivity.textContent = `Live: ${randomName} is preparing to bid ${formatPrice(ghostBid)}.`;
+    }
+  }, 3500);
 }
 
 const page = document.body.dataset.page;

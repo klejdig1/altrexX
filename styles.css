@@ -192,6 +192,60 @@ body {
   font-size: 18px;
 }
 
+.bid-hero {
+  border: 2px solid #fee2e2;
+  background: #fff7ed;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+}
+
+.bid-hero-label {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #9a3412;
+  font-weight: 700;
+}
+
+.bid-hero-value {
+  margin: 4px 0 0;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: #7f1d1d;
+  line-height: 1;
+}
+
+.timer-hero {
+  position: sticky;
+  top: 10px;
+  z-index: 5;
+  border: 2px solid #fca5a5;
+  background: linear-gradient(135deg, #ef4444, #f97316);
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.28);
+}
+
+.timer-hero-label {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #fee2e2;
+  font-weight: 700;
+}
+
+.timer-hero-value {
+  margin: 4px 0 0;
+  font-size: clamp(2.1rem, 4.5vw, 2.9rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
 .status-badge {
   display: inline-block;
   margin: 0 0 12px;
@@ -220,6 +274,14 @@ body {
   margin-top: 8px;
   color: #1d4ed8;
   font-size: 14px;
+}
+
+.live-activity {
+  margin-top: 8px;
+  min-height: 22px;
+  color: #991b1b;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .history-panel {
@@ -287,6 +349,37 @@ body {
   background: #1f2937;
 }
 
+.sticky-bid-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  background: rgba(3, 7, 18, 0.93);
+  border-top: 1px solid #1f2937;
+  backdrop-filter: blur(6px);
+}
+
+.sticky-bid-content {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.sticky-bid-title {
+  margin: 0;
+  color: #f3f4f6;
+  font-weight: 700;
+}
+
+body[data-page="product"] {
+  padding-bottom: 78px;
+}
+
 @media (max-width: 900px) {
   .container {
     width: min(1000px, 94%);
@@ -345,6 +438,12 @@ body {
   .bid-btn {
     width: 100%;
     padding: 12px 14px;
+  }
+
+  .sticky-bid-content {
+    width: 94%;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
