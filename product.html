@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AltrexX - Product</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="product">
+  <header class="container header">
+    <a href="index.html" class="back-link">&larr; Back to products</a>
+    <h1 id="product-title">Product</h1>
+  </header>
+
+  <main class="container">
+    <section class="product-details">
+      <img id="product-image" alt="Product image" class="product-image">
+      <div class="info">
+        <p id="auction-status" class="status-badge">Live Auction</p>
+        <p id="product-description"></p>
+        <p class="price-row">Starting Bid: <strong id="starting-price">$0</strong></p>
+        <p class="price-row">Current Bid: <strong id="product-price">$0</strong></p>
+        <p class="timer-row">Time left: <span id="countdown">00:00</span></p>
+        <button id="bid-btn" class="bid-btn">Place Bid (+$10)</button>
+        <p class="meta-row">Total Bids: <strong id="total-bids">0</strong></p>
+        <p id="auction-message" class="auction-message"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
