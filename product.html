@@ -19,11 +19,16 @@
         <p id="auction-status" class="status-badge">Live Auction</p>
         <p id="product-description"></p>
         <p class="price-row">Starting Bid: <strong id="starting-price">$0</strong></p>
-        <p class="price-row">Current Bid: <strong id="product-price">$0</strong></p>
+        <p class="price-row">Highest Bid: <strong id="product-price">$0</strong></p>
         <p class="timer-row">Time left: <span id="countdown">00:00</span></p>
         <button id="bid-btn" class="bid-btn">Place Bid (+$10)</button>
+        <p class="meta-row">Active Bidders: <strong id="active-bidders">0</strong></p>
         <p class="meta-row">Total Bids: <strong id="total-bids">0</strong></p>
         <p id="auction-message" class="auction-message"></p>
+        <div class="history-panel">
+          <h3>Bid History</h3>
+          <ul id="bid-history" class="history-list"></ul>
+        </div>
       </div>
     </section>
   </main>

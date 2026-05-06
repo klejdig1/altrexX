@@ -36,10 +36,10 @@ body {
 }
 
 .hero {
-  background: linear-gradient(135deg, #111827, #1f2937);
+  background: radial-gradient(circle at top right, #ef4444 0%, #111827 45%, #030712 100%);
   color: #f9fafb;
   border-radius: 12px;
-  padding: 18px;
+  padding: 20px;
   margin: 8px 0 16px;
 }
 
@@ -50,6 +50,21 @@ body {
 .hero p {
   margin: 0;
   color: #d1d5db;
+}
+
+.hero-cta {
+  margin-top: 14px;
+  display: inline-block;
+  text-decoration: none;
+  background: #ef4444;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+
+.hero-cta:hover {
+  background: #dc2626;
 }
 
 .hero-label {
@@ -105,6 +120,11 @@ body {
   margin: 6px 0;
 }
 
+.card-timer {
+  color: #b91c1c;
+  font-weight: 700;
+}
+
 .card a,
 .bid-btn,
 .back-link {
@@ -114,18 +134,19 @@ body {
 
 .card a,
 .bid-btn {
-  padding: 10px 14px;
+  padding: 11px 14px;
   border-radius: 8px;
-  background: #111827;
+  background: #dc2626;
   color: #fff;
   border: none;
   cursor: pointer;
   transition: background 0.2s ease, opacity 0.2s ease;
+  font-weight: 700;
 }
 
 .card a:hover,
 .bid-btn:hover {
-  background: #1f2937;
+  background: #b91c1c;
 }
 
 .card a {
@@ -137,6 +158,12 @@ body {
 .bid-btn:disabled {
   background: #9ca3af;
   cursor: not-allowed;
+}
+
+.bid-btn {
+  width: 100%;
+  margin: 6px 0 2px;
+  font-size: 16px;
 }
 
 .product-details {
@@ -184,20 +211,80 @@ body {
 }
 
 .meta-row {
-  margin-top: 12px;
+  margin-top: 8px;
   color: #374151;
 }
 
 .auction-message {
   min-height: 22px;
   margin-top: 8px;
-  color: #2563eb;
+  color: #1d4ed8;
   font-size: 14px;
+}
+
+.history-panel {
+  margin-top: 16px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 14px;
+}
+
+.history-panel h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.history-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.history-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px 10px;
 }
 
 .back-link {
   margin-bottom: 10px;
   color: #2563eb;
+}
+
+.business-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 8px 0 28px;
+}
+
+.business-section h2 {
+  margin: 10px 0 8px;
+}
+
+.business-section p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.business-cta {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+  background: #111827;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.business-cta:hover {
+  background: #1f2937;
 }
 
 @media (max-width: 900px) {
