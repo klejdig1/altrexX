@@ -263,16 +263,21 @@ function renderProductPage() {
 
   setInterval(() => {
     if (isAuctionEnded) return;
+    const randomName = liveNames[Math.floor(Math.random() * liveNames.length)];
     const watcherShift = Math.random() > 0.5 ? 1 : -1;
     watchersCount = Math.max(2, watchersCount + watcherShift);
     watchingUsers.textContent = String(watchersCount);
 
-    if (Math.random() > 0.55) {
-      const randomName = liveNames[Math.floor(Math.random() * liveNames.length)];
-      const ghostBid = currentPrice + BID_INCREMENT;
-      liveActivity.textContent = `Live: ${randomName} is preparing to bid ${formatPrice(ghostBid)}.`;
-    }
-  }, 3500);
+    currentPrice += BID_INCREMENT;
+    bidsCount += 1;
+    history.unshift({ bidder: randomName, amount: currentPrice });
+
+    price.textContent = formatPrice(currentPrice);
+    stickyPrice.textContent = formatPrice(currentPrice);
+    totalBids.textContent = String(bidsCount);
+    renderBidHistory(bidHistory, history.slice(0, 8));
+    liveActivity.textContent = `Live: ${randomName} placed ${formatPrice(currentPrice)}.`;
+  }, 5000);
 }
 
 const page = document.body.dataset.page;

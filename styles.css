@@ -76,6 +76,45 @@ body {
   color: #e5e7eb;
 }
 
+.steps-section {
+  margin: 6px 0 18px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.step-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.step-card h3 {
+  margin: 0 0 6px;
+}
+
+.step-card p {
+  margin: 0;
+  color: #4b5563;
+}
+
+.step-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 8px;
+  font-weight: 700;
+  color: #ffffff !important;
+  background: #dc2626;
+}
+
 .card {
   background: #ffffff;
   border: 1px solid #e5e7eb;
@@ -347,6 +386,49 @@ body {
 
 .business-cta:hover {
   background: #1f2937;
+}
+
+.trust-section {
+  background: #0f172a;
+  color: #f8fafc;
+  border-radius: 12px;
+  padding: 18px;
+  margin: 8px 0 28px;
+}
+
+.trust-section h2 {
+  margin: 0 0 6px;
+}
+
+.trust-section p {
+  margin: 0;
+  color: #cbd5e1;
+}
+
+.trust-links {
+  margin-top: 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.trust-links a {
+  color: #f8fafc;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 7px 11px;
+  border-radius: 999px;
+}
+
+.verified-badge {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #16a34a;
+  color: #ffffff;
+  font-weight: 700;
 }
 
 .sticky-bid-bar {
